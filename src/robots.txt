@@ -1,0 +1,5 @@
+# Allow crawling of all content
+User-agent: *
+Disallow:
+
+Sitemap: https://domaine-de-montdenis.fr/sitemap.xml

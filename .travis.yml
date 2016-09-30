@@ -1,0 +1,23 @@
+language: node_js
+sudo: required
+services:
+- docker
+node_js:
+- 6.6.0
+script:
+- npm run build
+- docker build -t ${DOCKER_USER}/site-domaine .
+- docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+- docker push ${DOCKER_USER}/site-domaine
+notifications:
+  email: false
+before_deploy:
+- eval "$(ssh-agent -s)"
+- chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
+- ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "bash -s" 2>/dev/null -- < ./deploy.sh domaine https://github.com/ViBiOh/site-domaine.git domaine-de-montdenis.fr
+  on:
+    branch: master

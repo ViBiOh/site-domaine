@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  montdenis:
+    image: vibioh/site-domaine
+    command: --notFound --domain "*.google-analytics.com fonts.gstatic.com *.openstreetmap.org"
+    labels:
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: ${DOMAIN}'
+      traefik.port: '1080'
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: on-failure:5
+    read_only: true
+    cpu_shares: 128
+    mem_limit: 134217728
+#    security_opt:
+#    - no-new-privileges
+
+networks:
+  default:
+    external:
+      name: traefik
