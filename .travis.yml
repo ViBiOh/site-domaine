@@ -3,12 +3,20 @@ sudo: required
 services:
 - docker
 node_js:
-- 6.6.0
+- 6.7.0
+cache:
+  directories:
+  - .node_modules/
 before_install:
 - openssl aes-256-cbc -K $encrypted_afb3f4a0fd37_key -iv $encrypted_afb3f4a0fd37_iv -in deploy_rsa.enc -out deploy_rsa -d
 script: |
   npm run build &&
   docker build -t ${DOCKER_USER}/site-domaine .
+after_success:
+  - if [ "${TRAVIS_BRANCH}" == "master" ]; then
+      docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} &&
+      docker push ${DOCKER_USER}/site-domaine
+    fi
 notifications:
   email: false
 before_deploy:
@@ -18,9 +26,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: |
-    docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} &&
-    docker push ${DOCKER_USER}/site-domaine &&
-    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "bash -s" 2>/dev/null -- < ./deploy.sh domaine https://github.com/ViBiOh/site-domaine.git domaine-de-montdenis.fr
+  script: ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "bash -s" 2>/dev/null -- < ./deploy.sh domaine https://github.com/ViBiOh/site-domaine.git domaine-de-montdenis.fr
   on:
     branch: master
