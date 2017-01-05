@@ -6,8 +6,6 @@ node_js: 6
 cache:
   directories:
   - .node_modules/
-before_install:
-- openssl aes-256-cbc -K $encrypted_afb3f4a0fd37_key -iv $encrypted_afb3f4a0fd37_iv -in deploy_rsa.enc -out deploy_rsa -d
 script: |
   npm run build &&
   docker build -t ${DOCKER_USER}/site-domaine .
@@ -17,13 +15,9 @@ after_success: |
   fi
 notifications:
   email: false
-before_deploy:
-- eval "$(ssh-agent -s)"
-- chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
-- ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "bash -s" 2>/dev/null -- < ./deploy.sh domaine https://github.com/ViBiOh/site-domaine.git domaine-de-montdenis.fr
+  script: curl -u ${DEPLOY_USER}:${DEPLOY_PASS} -X POST https://docker-api.vibioh.fr/containers/domaine/ --data-binary @docker-compose.yml
   on:
     branch: master
