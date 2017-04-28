@@ -7,6 +7,7 @@
 
 @dark: #438240;
 @clear: #f8f8f8;
+@icon-size: 30px;
 
 @charset "UTF-8";
 
@@ -73,6 +74,16 @@ article a:focus {
 
 address {
   font-style: normal;
+}
+
+address > p > span {
+  align-items: center;
+  display: inline-flex;
+}
+
+address > p > span svg {
+  margin-right: 5px;
+  width: @icon-size;
 }
 
 figure {
