@@ -3,6 +3,8 @@
   "description": "Mentions légales de notre site internet destiné à promouvoir notre élevage canin du Domaine de Montdenis près de Paris, à Sancy-les-Meaux",
   "url": "https://domaine-de-montdenis.fr/legals/",
   "img": "https://domaine-de-montdenis.fr/android-chrome-512x512.png",
+  "imgHeight": "512",
+  "imgWidth": "512",
   "breadcrumb": [
     {
       "url": "https://domaine-de-montdenis.fr/",
