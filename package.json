@@ -47,7 +47,7 @@
     "normalize.css": "latest",
     "stylelint": "latest",
     "stylelint-config-standard": "latest",
-    "uglify-js": "latest"
+    "uglify-es": "latest"
   },
   "dependencies": {}
 }
