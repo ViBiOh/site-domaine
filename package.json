@@ -37,7 +37,7 @@
   "homepage": "https://github.com/ViBiOh/site-domaine",
   "devDependencies": {
     "clean-css-cli": "latest",
-    "eslint": "latest",
+    "eslint": "4",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
     "html-minifier": "latest",
