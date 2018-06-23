@@ -1,5 +1,5 @@
 const toggleButton = document.getElementById('toggleMenu');
-const navElement = document.getElementsByTagName('nav')[0];
+const navElement = document.querySelector('nav');
 
 function handleNav(target) {
   const navClasses = navElement.classList;
