@@ -147,7 +147,7 @@ article svg {
 
   nav {
     position: fixed;
-    bottom: var(--toggle-menu-height) + 20px;
+    bottom: calc(var(--toggle-menu-height) + 20px);
     right: 10px;
     display: none;
     z-index: 20;
