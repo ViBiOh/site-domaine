@@ -1,28 +1,18 @@
 {
   "name": "site-domaine",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Site Elevage du Domaine de Montdenis",
   "main": "dist/index.html",
   "scripts": {
-    "clean": "rm -rf ./dist && rm -rf ./tmp && mkdir ./tmp && mkdir -p ./dist/img",
-    "copy:robots": "cp ./src/robots.txt ./dist/",
-    "copy:html": "cp ./src/*.html ./dist/",
-    "copy:favicon": "cp ./src/favicon/* ./dist/",
-    "jpegtran": "./node_modules/js-index-builder/jpegtran.js -i \"./src/img/*.jpg\" -o ./dist/img/",
-    "copy:svg": "cp ./src/img/*.svg ./dist/img/",
-    "copy": "npm run copy:robots && npm run copy:html && npm run copy:favicon && npm run jpegtran && npm run copy:svg",
+    "clean": "rm -rf ./dist",
     "stylelint": "./node_modules/.bin/stylelint \"src/**/*.css\"",
-    "eslint": "./node_modules/.bin/eslint --fix src/js/nav.js",
-    "lint": "npm run stylelint && npm run eslint",
-    "js": "cat ./src/js/*.js | ./node_modules/.bin/uglifyjs -c > ./tmp/index.js",
-    "style": "cat ./src/css/style.css | ./node_modules/.bin/cleancss -O2 -o ./tmp/style.css",
-    "mustache": "./node_modules/js-index-builder/index.js -t \"src/html/**/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"src/partials/*.html\" -j ./tmp/index.js -c ./tmp/style.css -s ./src/img/logo_404.svg -o ./tmp",
-    "html-minify": "./node_modules/.bin/html-minifier --config-file ./html-minifier.json --input-dir ./tmp --output-dir ./dist",
-    "html": "npm run mustache && npm run html-minify",
-    "structure": "./node_modules/js-index-builder/sitemap.js -j \"src/html/**/*.json\" -s ./dist/sitemap.xml",
-    "build": "npm run clean && npm run lint && npm run copy && npm run js && npm run style && npm run structure && npm run html",
+    "html": "./node_modules/.bin/html-minifier --config-file ./html-minifier.json --input-dir ./src --file-ext html --output-dir ./dist",
+    "style": "mkdir ./dist/css && cat ./src/css/style.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/style.css",
+    "img": "cp -r src/img/ dist/img",
+    "favicon": "cp -r src/favicon/ dist/favicon",
+    "build": "npm run clean && npm run stylelint && npm run html && npm run style && npm run img && npm run favicon",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws",
-    "start": "viws -tls=false -directory ${INIT_CWD}/dist -notFound -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net/npm/normalize.css@8.0.0/; frame-src 'self' *.openstreetmap.org\" -headers X-UA-Compatible:ie=edge~content-language:fr"
+    "start": "viws -tls=false -directory ${INIT_CWD}/dist/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net/npm/normalize.css@8.0.0/; font-src 'self' fonts.googleapis.com\" -headers X-UA-Compatible:ie=edge~content-language:fr"
   },
   "repository": {
     "type": "git",
@@ -37,14 +27,9 @@
   "homepage": "https://github.com/ViBiOh/site-domaine",
   "devDependencies": {
     "clean-css-cli": "latest",
-    "eslint": "4",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-plugin-import": "latest",
     "html-minifier": "latest",
-    "js-index-builder": "ViBiOh/js-index-builder",
     "stylelint": "latest",
-    "stylelint-config-standard": "latest",
-    "uglify-es": "latest"
+    "stylelint-config-standard": "latest"
   },
   "dependencies": {}
 }

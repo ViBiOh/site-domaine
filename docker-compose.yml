@@ -4,9 +4,8 @@ services:
   site:
     image: vibioh/domaine
     command:
-    - -notFound
     - -csp
-    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net/npm/normalize.css@8.0.0/; frame-src 'self' *.openstreetmap.org
+    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net/npm/normalize.css@8.0.0/; font-src 'self' fonts.googleapis.com
     - -headers
     - X-UA-Compatible:ie=edge~content-language:fr
     - -tracingName
