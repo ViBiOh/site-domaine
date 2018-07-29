@@ -113,6 +113,10 @@ body {
   width: var(--nav-underline-width);
 }
 
+.logo {
+  margin: 2rem;
+}
+
 .doghead {
   border-radius: 50%;
   border: 1rem solid var(--yellow);
