@@ -11,10 +11,10 @@
     "js": "cp -r src/js/ dist/js",
     "img": "cp -r src/img/ dist/img",
     "favicon": "cp -r src/favicon/ dist/favicon",
-    "cache": "sed -i '' \"s|{{version}}|`git log --pretty=format:'%h' -n 1`|g\" dist/index.html",
+    "cache": "./cache.sh",
     "build": "npm run clean && npm run stylelint && npm run html && npm run style && npm run js && npm run img && npm run favicon && npm run cache",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws",
-    "start": "viws -tls=false -directory ${INIT_CWD}/src/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' api.tiles.mapbox.com; style-src 'self' cdn.jsdelivr.net/npm/normalize.css@8.0.0/ api.tiles.mapbox.com; img-src 'self' data: blob:; font-src 'self' fonts.googleapis.com; connect-src 'self' *.mapbox.com; child-src 'self' blob:\" -headers X-UA-Compatible:ie=edge~content-language:fr"
+    "start": "viws -tls=false -directory ${INIT_CWD}/src/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' api.tiles.mapbox.com; style-src 'self' cdn.jsdelivr.net/npm/normalize.css@8.0.0/ fonts.googleapis.com api.tiles.mapbox.com; img-src 'self' data: blob:; font-src 'self' fonts.gstatic.com; connect-src 'self' *.mapbox.com; child-src 'self' blob:\" -headers X-UA-Compatible:ie=edge~content-language:fr"
   },
   "repository": {
     "type": "git",

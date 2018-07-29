@@ -33,16 +33,76 @@
   <body>
     <nav class="flex nav full-width">
       <a class="nav__link link flex__item text center nav__link--active" href="#accueil">Accueil</a>
-      <a class="nav__link link flex__item text center" href="#elevage">L'élevage</a>
+      <a class="nav__link link flex__item text center" href="#race">La race</a>
       <img class="flex__item logo" src="/img/logo_full.svg?v={{version}}" alt="logo" width="1">
-      <a class="nav__link link flex__item text center" href="#domaine">Le&nbsp;domaine</a>
+      <a class="nav__link link flex__item text center" href="#elevage">L'élevage</a>
       <a class="nav__link link flex__item text center" href="#contact">Contact</a>
     </nav>
 
-    <article class="content flex flex--wrap full-width">
-      <img class="doghead" src="/img/tete.png" alt="Tête de chien">
+    <article class="content full-width">
+      <section class="section flex full-width">
+        <img id="doghead" src="/img/tete.png?v={{version}}" alt="Tête de chien">
 
-      <div class="contact flex full-width" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div id="accueil">
+          <h2 class="title text h2">Bienvenue au Domaine de Montdenis</h2>
+          <p class="text">
+            Nos adultes participent à quelques expositions canines.
+          </p>
+          <p class="text">
+            Nous élevons cette merveilleuse race qu'est l'épagneul nain continental depuis 1996.
+          </p>
+          <p class="text">
+            Nous sommes membres du club français de l'épagneul nain continental et du petit chien russe.
+          </p>
+        </div>
+      </section>
+
+      <section id="race" class="section block-center center">
+        <h2 class="title text h2">La race</h2>
+        <p class="text">
+          L'épagneul nain continental (variété papillon et phalène) est un chien de petite taille a l'allure fière et élégante. Son poids varie de 1kg5 à 5kg.
+        </p>
+        <p class="text">
+          Sa vivacité, son caractère facile et l'attachement qu'il porte à son maître font de lui un excellent chien de compagnie qui vous suivra dans tous vos déplacements. Il est sociable avec les autres animaux. Sa santé est robuste.
+        </p>
+        <p class="text">
+            Il apprécie autant le canapé que les promenades en extérieur. Sa fourrure sans sous-poils est auto-nettoyante. Il suffit d'un bon coup de brosse au retour d'une promenade.
+        </p>
+      </section>
+
+      <section class="section block-center center">
+        <picture class="picture">
+          <source srcset="/img/cindy.jpg" media="(min-width: 801px)" width="500px">
+          <img src="/img/cindy_640.jpg" width="500px">
+
+          <figcaption class="picture__caption text">Un de nos chiots en plein air</figcaption>
+        </picture>
+
+        <picture class="picture">
+          <source srcset="/img/sociabilisation.jpg" media="(min-width: 801px)" width="500px">
+          <img src="/img/sociabilisation_640.jpg" width="500px">
+
+          <figcaption class="picture__caption text">Nos chiots sont sociabilisés avec d'autres chiens</figcaption>
+        </picture>
+      </section>
+
+      <section id="elevage" class="section block-center center">
+        <h2 class="title text h2">L'élevage</h2>
+        <p class="text">
+          Nous n'élevons que des chiots inscrits au L.O.F, issus de lignées sélectionnées.
+        </p>
+        <p class="text">
+           Nos chiots sont sociabilisés (chiens adultes tous gabarit, enfants, bruits de la maison, etc...)
+        </p>
+        <p class="text">
+          Ils peuvent quitter l'élevage vers l'âge de 12 semaines, identifiés, vaccinés et vermifugés régulièrement.
+        </p>
+        <p class="text">
+          Pour tout départ de chiot, il est établi un contrat de vente.
+        </p>
+      </section>
+
+      <section id="contact" class="contact flex full-width" itemscope itemtype="http://schema.org/LocalBusiness">
         <div class="flex__item">
           <span class="microdata" itemprop="name">Elevage et Pension de chevaux Montdenis</span>
 
@@ -66,7 +126,7 @@
         </div>
 
         <div id="map" class="flex__item"></div>
-      </div>
+      </section>
 
       <div class="legals text full-width center">
         <span>&copy; 2018 Domaine de Montdenis&nbsp;|&nbsp;</span>
@@ -75,7 +135,6 @@
     </article>
 
     <link rel="stylesheet" type="text/css" href="/css/style.css?v={{version}}">
-
     <script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css" rel="stylesheet">
     <script type="text/javascript" src="/js/map.js?v={{version}}"></script>

@@ -1,3 +1,8 @@
+@charset "UTF-8";
+
+@import url("https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans");
+
 :root {
   --white: #fff;
   --yellow: #fbdb7b;
@@ -6,11 +11,6 @@
   --nav-underline-width: 12rem;
   --mobile-breakpoing: 800px;
 }
-
-@charset "UTF-8";
-
-@import url('https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 * {
   box-sizing: border-box;
@@ -27,11 +27,6 @@ body {
   height: 100vh;
   margin: 0;
   width: 100vw;
-}
-
-.h2 {
-  font-size: 3rem;
-  line-height: 4rem;
 }
 
 .full-width {
@@ -51,6 +46,11 @@ body {
   text-align: center;
 }
 
+.block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .padding {
   padding: 1rem;
 }
@@ -67,6 +67,12 @@ body {
 
 .flex__item {
   flex: 1 1;
+}
+
+.h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3rem;
+  line-height: 4rem;
 }
 
 .link {
@@ -117,20 +123,29 @@ body {
   margin: 2rem;
 }
 
-.doghead {
-  border-radius: 50%;
-  border: 1rem solid var(--yellow);
-}
-
 .content {
   height: 100%;
   position: relative;
 }
 
+.section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.picture {
+  width: 50rem;
+  margin: 0 1rem;
+  display: inline-block;
+}
+
+.picture__caption {
+  margin: 1rem 4rem;
+}
+
 .contact {
   background-color: var(--yellow);
   padding: 6rem;
-  margin: 4rem 0;
 }
 
 .contact__address {
@@ -151,6 +166,24 @@ body {
   line-height: 4rem;
   letter-spacing: 0.1rem;
   margin-top: 3rem;
+}
+
+#doghead {
+  border-radius: 50%;
+  border: 1rem solid var(--yellow);
+}
+
+#accueil {
+  margin-left: 6rem;
+  max-width: 50rem;
+}
+
+#race {
+  max-width: 80rem;
+}
+
+#elevage {
+  max-width: 80rem;
 }
 
 #map {
