@@ -29,8 +29,22 @@ body {
   width: 100vw;
 }
 
+.h2 {
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
 .full-width {
   width: 100%;
+}
+
+.text {
+  color: var(--blue);
+  font-size: 1.6rem;
+}
+
+.title {
+  text-transform: uppercase;
 }
 
 .center {
@@ -55,6 +69,16 @@ body {
   flex: 1 1;
 }
 
+.link {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 .nav {
   display: flex;
   align-items: flex-start;
@@ -70,15 +94,8 @@ body {
 }
 
 .nav__link {
-  display: inline-block;
   letter-spacing: 0.1rem;
   line-height: 8rem;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.nav__link:hover {
-  text-decoration: underline;
 }
 
 .nav__link--active {
@@ -106,13 +123,41 @@ body {
   position: relative;
 }
 
-.text {
-  color: var(--blue);
-  font-size: 1.6rem;
+.contact {
+  background-color: var(--yellow);
+  padding: 6rem;
+  margin: 4rem 0;
 }
 
-.title {
-  text-transform: uppercase;
+.contact__address {
+  margin-bottom: 2rem;
+}
+
+.contact__address-line {
+  font-size: 2rem;
+  line-height: 3.5rem;
+}
+
+.contact__button {
+  background-color: var(--blue);
+  border-radius: 3rem;
+  color: var(--yellow);
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  line-height: 4rem;
+  letter-spacing: 0.1rem;
+  margin-top: 3rem;
+}
+
+#map {
+  flex: 2 2;
+  height: 40rem;
+  margin-left: 2rem;
+}
+
+.legals {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .microdata {

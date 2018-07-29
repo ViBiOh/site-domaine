@@ -8,11 +8,12 @@
     "stylelint": "./node_modules/.bin/stylelint \"src/**/*.css\"",
     "html": "./node_modules/.bin/html-minifier --config-file ./html-minifier.json --input-dir ./src --file-ext html --output-dir ./dist",
     "style": "mkdir ./dist/css && cat ./src/css/style.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/style.css",
+    "js": "cp -r src/js/ dist/js",
     "img": "cp -r src/img/ dist/img",
     "favicon": "cp -r src/favicon/ dist/favicon",
-    "build": "npm run clean && npm run stylelint && npm run html && npm run style && npm run img && npm run favicon",
+    "build": "npm run clean && npm run stylelint && npm run html && npm run style && npm run js && npm run img && npm run favicon",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws",
-    "start": "viws -tls=false -directory ${INIT_CWD}/dist/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net/npm/normalize.css@8.0.0/; font-src 'self' fonts.googleapis.com\" -headers X-UA-Compatible:ie=edge~content-language:fr"
+    "start": "viws -tls=false -directory ${INIT_CWD}/src/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' api.tiles.mapbox.com; style-src 'self' cdn.jsdelivr.net/npm/normalize.css@8.0.0/ api.tiles.mapbox.com; img-src 'self' data: blob:; font-src 'self' fonts.googleapis.com; connect-src 'self' *.mapbox.com; child-src 'self' blob:\" -headers X-UA-Compatible:ie=edge~content-language:fr"
   },
   "repository": {
     "type": "git",

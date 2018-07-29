@@ -32,33 +32,52 @@
 
   <body>
     <nav class="flex nav full-width">
-      <a class="nav__link flex__item text center nav__link--active" href="#accueil">Accueil</a>
-      <a class="nav__link flex__item text center" href="#elevage">L'élevage</a>
+      <a class="nav__link link flex__item text center nav__link--active" href="#accueil">Accueil</a>
+      <a class="nav__link link flex__item text center" href="#elevage">L'élevage</a>
       <img class="flex__item" src="/img/logo_full.svg" alt="logo" width="1">
-      <a class="nav__link flex__item text center" href="#domaine">Le&nbsp;domaine</a>
-      <a class="nav__link flex__item text center" href="#contact">Contact</a>
+      <a class="nav__link link flex__item text center" href="#domaine">Le&nbsp;domaine</a>
+      <a class="nav__link link flex__item text center" href="#contact">Contact</a>
     </nav>
 
     <article class="content flex flex--wrap full-width">
       <img class="doghead" src="/img/tete.png" alt="Tête de chien">
 
-      <div class="text full-width center">
-        <span>&copy; 2018 Domaine de Montdenis |&nbsp;</span>
-        <a href="/legals/">Mentions légales</a>
+      <div class="contact flex full-width" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div class="flex__item">
+          <span class="microdata" itemprop="name">Elevage et Pension de chevaux Montdenis</span>
+
+          <div class="contact__address text" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <div class="contact__address-line">Corinne Boutour</div>
+            <div class="contact__address-line" itemprop="streetAddress">Ferme de Montdenis</div>
+            <div class="contact__address-line">
+              <span itemprop="postalCode">77580</span>&nbsp;<span itemprop="addressLocality">Sancy-les-Meaux</span>
+            </div>
+            <span class="microdata" itemprop="addressRegion">France</span>
+          </div>
+
+          <div class="contact__address-line">
+            📞 <a href="tel:+33164637136" class="text link contact__address-line" itemprop="telephone">01 64 63 71 36</a>
+          </div>
+          <div class="contact__address-line">
+            📱 <a href="tel:+33610846253" class="text link contact__address-line" itemprop="mobile">06 10 84 62 53</a>
+          </div>
+
+          <a class="contact__button title link" href="mailto:corinne.boutour@gmail.com">Nous contacter</a>
+        </div>
+
+        <div id="map" class="flex__item"></div>
+      </div>
+
+      <div class="legals text full-width center">
+        <span>&copy; 2018 Domaine de Montdenis&nbsp;|&nbsp;</span>
+        <a class="text" href="/legals/">Mentions légales</a>
       </div>
     </article>
 
-    <span class="microdata" itemscope itemtype="http://schema.org/LocalBusiness">
-      <span itemprop="name">Elevage et Pension de chevaux Montdenis</span>
-        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-        <span itemprop="streetAddress">Ferme de Montdenis</span>
-        <span itemprop="addressLocality">Sancy-les-Meaux</span>
-        <span itemprop="addressRegion">France</span>
-        <span itemprop="postalCode">77580</span>
-      </span>
-      Phone: <span itemprop="telephone">+33164637136</span>
-    </span>
-
     <link rel="stylesheet" type="text/css" href="/css/style.css?v=1">
+
+    <script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/map.js"></script>
   </body>
 </html>
