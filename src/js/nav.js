@@ -1,29 +1,27 @@
+NodeList.prototype.__proto__ = Array.prototype;
+
 var linkActiveClass = 'nav__link--active';
 var links = document.querySelectorAll('.nav__link');
 
 var currentHash = document.location.hash;
-var activeHash = false;
 
 function addActiveModifier(el) {
+  var active = document.querySelector('.' + linkActiveClass);
+  if (active) {
+    active.classList.remove(linkActiveClass);
+  }
+
   el.classList.add(linkActiveClass);
 }
 
-function addActiveOnClick(link) {
-  link.addEventListener('click', function() {
-    document.querySelector('.' + linkActiveClass).classList.remove(linkActiveClass);
+links.forEach(function(link) {
+  link.addEventListener('click', function(e) {
     addActiveModifier(link);
   });
-}
-
-links.forEach(function(link) {
-  if (currentHash && !activeHash && link.href.endsWith(currentHash)) {
-    addActiveModifier(link);
-    activeHash = true;
-  }
-
-  addActiveOnClick(link);
 });
 
-if (!activeHash) {
+if (currentHash) {
+  addActiveModifier(document.querySelector('.nav__link[href*="' + currentHash + '"]'));
+} else {
   addActiveModifier(links[0]);
 }
