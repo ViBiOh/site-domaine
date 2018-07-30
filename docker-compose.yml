@@ -5,7 +5,7 @@ services:
     image: vibioh/domaine
     command:
     - -csp
-    - "default-src 'self'; base-uri 'self'; script-src 'self' api.tiles.mapbox.com; style-src 'self' cdn.jsdelivr.net/npm/normalize.css@8.0.0/ fonts.googleapis.com api.tiles.mapbox.com; img-src 'self' data: blob:; font-src 'self' fonts.gstatic.com; connect-src 'self' *.mapbox.com; child-src 'self' blob:"
+    - "default-src 'self'; base-uri 'self'; script-src 'self' api.tiles.mapbox.com; style-src 'self' cdn.jsdelivr.net/npm/normalize.css@8.0.0/ use.fontawesome.com/releases/v5.2.0/css/ fonts.googleapis.com api.tiles.mapbox.com; img-src 'self' data: blob:; font-src 'self' fonts.gstatic.com use.fontawesome.com; connect-src 'self' *.mapbox.com; child-src 'self' blob:"
     - -headers
     - X-UA-Compatible:ie=edge~content-language:fr
     - -tracingName
