@@ -39,6 +39,10 @@ body {
   line-height: 3.4rem;
 }
 
+.text__panel {
+  max-width: 80rem;
+}
+
 .title {
   text-transform: uppercase;
 }
@@ -66,10 +70,6 @@ body {
   justify-content: center;
 }
 
-.flex--wrap {
-  flex-wrap: wrap;
-}
-
 .flex__item {
   flex: 1 1;
 }
@@ -92,9 +92,7 @@ body {
 }
 
 .nav {
-  display: flex;
   align-items: flex-start;
-  justify-content: space-around;
   background:
     linear-gradient(
       to bottom,
@@ -103,6 +101,8 @@ body {
       rgba(255, 255, 255, 1) 80px,
       rgba(255, 255, 255, 1) 100%
     );
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav__link {
@@ -135,14 +135,19 @@ body {
 }
 
 .section {
-  margin-top: 4rem;
   margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.accueil__content {
+  margin-left: 6rem;
+  max-width: 50rem;
 }
 
 .picture {
-  width: 50rem;
-  margin: 0 1rem;
   display: inline-block;
+  margin: 0 1rem;
+  width: 50rem;
 }
 
 .picture__caption {
@@ -167,29 +172,20 @@ body {
   background-color: var(--blue);
   border-radius: 3rem;
   color: var(--yellow);
-  padding: 1rem 4rem;
   font-size: 2rem;
-  line-height: 4rem;
   letter-spacing: 0.1rem;
+  line-height: 4rem;
   margin-top: 3rem;
+  padding: 1rem 4rem;
+}
+
+.copyright::after {
+  content: " | ";
 }
 
 #doghead {
   border-radius: 50%;
   border: 1rem solid var(--yellow);
-}
-
-#accueil {
-  margin-left: 6rem;
-  max-width: 50rem;
-}
-
-#race {
-  max-width: 80rem;
-}
-
-#elevage {
-  max-width: 80rem;
 }
 
 #map {
@@ -198,9 +194,74 @@ body {
   margin-left: 2rem;
 }
 
-.legals {
-  padding-top: 4rem;
+#legals {
   padding-bottom: 4rem;
+  padding-top: 4rem;
+}
+
+@media screen and (max-width: 800px) {
+  .flex-wrap--sm {
+    flex-wrap: wrap;
+  }
+
+  .row-reverse--sm {
+    flex-direction: column-reverse;
+  }
+
+  .nav {
+    background: var(--white);
+  }
+
+  .nav__link {
+    display: none;
+  }
+
+  .logo {
+    max-width: 20rem;
+  }
+
+  .text__panel {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .accueil__content,
+  .picture {
+    margin: 0;
+  }
+
+  .picture,
+  .picture img {
+    width: 100%;
+  }
+
+  .picture__caption {
+    margin: 0 2rem 2rem;
+  }
+
+  .contact {
+    padding: 2rem;
+  }
+
+  .copyright {
+    display: block;
+  }
+
+  .copyright::after {
+    content: '';
+  }
+
+  #doghead {
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  #map {
+    flex-basis: 100%;
+    margin: 3.2rem 0 0;
+  }
 }
 
 .microdata {

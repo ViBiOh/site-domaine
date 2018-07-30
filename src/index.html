@@ -32,18 +32,19 @@
 
   <body>
     <nav class="flex nav full-width">
-      <a class="nav__link link flex__item text center" href="#accueil">Accueil</a>
-      <a class="nav__link link flex__item text center" href="#race">La race</a>
+      <a class="nav__link link flex__item text center" href="/#accueil">Accueil</a>
+      <a class="nav__link link flex__item text center" href="/#race">La race</a>
       <img class="flex__item logo" src="/img/logo_full.svg?v={{version}}" alt="logo" width="1">
-      <a class="nav__link link flex__item text center" href="#elevage">L'élevage</a>
-      <a class="nav__link link flex__item text center" href="#contact">Contact</a>
+      <a class="nav__link link flex__item text center" href="/#elevage">L'élevage</a>
+      <a class="nav__link link flex__item text center" href="/#contact">Contact</a>
     </nav>
 
     <article class="content full-width">
-      <section class="section flex full-width">
+
+      <section id="accueil" class="section flex full-width flex-wrap--sm row-reverse--sm">
         <img id="doghead" src="/img/tete.png?v={{version}}" alt="Tête de chien">
 
-        <div id="accueil">
+        <div class="text__panel accueil__content">
           <h2 class="title text h2">Bienvenue au Domaine de Montdenis</h2>
           <p class="text">
             Nos adultes participent à quelques expositions canines.
@@ -57,7 +58,7 @@
         </div>
       </section>
 
-      <section id="race" class="section block-center center">
+      <section id="race" class="section block-center center text__panel">
         <h2 class="title text h2">La race</h2>
         <p class="text">
           L'épagneul nain continental (variété papillon et phalène) est un chien de petite taille a l'allure fière et élégante. Son poids varie de 1kg5 à 5kg.
@@ -86,7 +87,7 @@
         </picture>
       </section>
 
-      <section id="elevage" class="section block-center center">
+      <section id="elevage" class="section block-center center text__panel">
         <h2 class="title text h2">L'élevage</h2>
         <p class="text">
           Nous n'élevons que des chiots inscrits au L.O.F, issus de lignées sélectionnées.
@@ -102,8 +103,9 @@
         </p>
       </section>
 
-      <section id="contact" class="contact flex full-width" itemscope itemtype="http://schema.org/LocalBusiness">
-        <div class="flex__item">
+      <section id="contact" class="contact flex full-width flex-wrap--sm" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div class="flex__item text__panel">
+          <h2 class="title text h2">Nous contacter</h2>
           <span class="microdata" itemprop="name">Elevage et Pension de chevaux Montdenis</span>
 
           <div class="contact__address text" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -128,8 +130,8 @@
         <div id="map" class="flex__item"></div>
       </section>
 
-      <div class="legals text full-width center">
-        <span>&copy; 2018 Domaine de Montdenis&nbsp;|&nbsp;</span>
+      <div id="legals" class="text full-width center">
+        <span class="copyright">&copy; 2018 Domaine de Montdenis</span>
         <a class="text" href="/legals/">Mentions légales</a>
       </div>
     </article>

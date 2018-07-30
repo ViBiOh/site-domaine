@@ -6,7 +6,8 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
     center: coordinates,
-    zoom: 11
+    zoom: 11,
+    scrollZoom: false
 });
 
 var nav = new mapboxgl.NavigationControl({ showCompass: false });
