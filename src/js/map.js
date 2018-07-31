@@ -10,9 +10,5 @@ var map = new mapboxgl.Map({
     scrollZoom: false
 });
 
-map.addControl(new mapboxgl.NavigationControl({
-  showCompass: false
-}), 'top-right');
-new mapboxgl.Marker()
-    .setLngLat(coordinates)
-    .addTo(map);
+map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
