@@ -1,11 +1,29 @@
 NodeList.prototype.__proto__ = Array.prototype;
 
+var ANCHOR_HREF_REGEX = /.*#(.*?)$/gi;
+
 var stickyNavClass = 'sticky-nav';
 var linkActiveClass = 'nav__link--active';
 
 var nav = document.querySelector('.nav');
 var body = document.querySelector('body');
+var content = document.querySelector('.content');
 var firstSection = document.querySelector('section');
+var links = document.querySelectorAll('.nav__link');
+
+var linksSections = links
+  .map(function(link) {
+    var id = '';
+
+    link.href.replace(ANCHOR_HREF_REGEX, function(all, anchorName) {
+      id = anchorName;
+    });
+
+    return {
+      link: link,
+      element: document.getElementById(id),
+    };
+  });
 
 if (firstSection) {
   var firstSectionMarginTop = Number(window.getComputedStyle(firstSection).getPropertyValue('margin-top').replace('px', ''));
@@ -36,6 +54,14 @@ if (nav) {
   window.addEventListener('resize', updateNavHeight);
 }
 
+function offset(e) {
+  var rect = e.getBoundingClientRect();
+  return {
+      top: rect.top + document.body.scrollTop,
+      left: rect.left + document.body.scrollLeft
+  };
+}
+
 if (body && nav) {
   /**
    * Update sticky nav state of the body.
@@ -47,6 +73,16 @@ if (body && nav) {
       if (!bodyHasStickyClass) {
         body.classList.add(stickyNavClass);
         setBodyMarginTopToNavHeight();
+      }
+
+      var visiblesSections = linksSections.filter(function(linkSection) {
+        return offset(linkSection.element).top < window.scrollY;
+      });
+
+      if (visiblesSections.length) {
+        setActiveNavLink(visiblesSections[visiblesSections.length - 1].link);
+      } else {
+        setActiveNavLink(links[0]);
       }
     } else if (bodyHasStickyClass) {
       body.classList.remove(stickyNavClass);
@@ -72,7 +108,6 @@ function setActiveNavLink(el) {
   }
 }
 
-var links = document.querySelectorAll('.nav__link');
 if (links) {
   links.forEach(function(link) {
     link.addEventListener('click', function() {
