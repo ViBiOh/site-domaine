@@ -129,6 +129,28 @@ body {
 
 .logo {
   margin: 2rem;
+  max-width: 20rem;
+}
+
+.logo--small {
+  display: none;
+  height: 8rem;
+}
+
+.sticky-nav .nav {
+  background: var(--white);
+  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  z-index: 5;
+}
+
+.sticky-nav .logo {
+  display: none;
+}
+
+.sticky-nav .logo--small {
+  display: block;
 }
 
 .content {
