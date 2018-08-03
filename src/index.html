@@ -73,19 +73,33 @@
       </section>
 
       <section class="section block-center center">
-        <picture class="picture">
-          <source srcset="/img/cindy.jpg" media="(min-width: 801px)" width="500px">
-          <img src="/img/cindy_640.jpg" width="500px">
+        <figure id="figure-cindy" class="picture">
+          <noscript>
+            <img src="/img/cindy.jpg" width="500px" alt="Cindy">
+          </noscript>
+
+          <div class="throbber" id="throbber-cindy" data-id="cindy" data-src="/img/cindy.jpg" data-alt="Cindy">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
 
           <figcaption class="picture__caption text">Un de nos chiots en plein air</figcaption>
-        </picture>
+        </figure>
 
-        <picture class="picture">
-          <source srcset="/img/sociabilisation.jpg" media="(min-width: 801px)" width="500px">
-          <img src="/img/sociabilisation_640.jpg" width="500px">
+        <figure id="figure-sociabilisation" class="picture">
+          <noscript>
+            <img src="/img/sociabilisation.jpg" width="500px" alt="Sociabilisation">
+          </noscript>
+
+          <div class="throbber" id="throbber-sociabilisation" data-id="sociabilisation" data-src="/img/sociabilisation.jpg" data-alt="Sociabilisation">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
 
           <figcaption class="picture__caption text">Nos chiots sont sociabilisés avec d'autres chiens</figcaption>
-        </picture>
+        </figure>
       </section>
 
       <section id="elevage" class="section block-center center text__panel">
@@ -142,6 +156,7 @@
 
     <link rel="stylesheet" type="text/css" href="/css/style.css?v={{version}}">
     <script type="text/javascript" src="/js/nav.js?v={{version}}"></script>
+    <script type="text/javascript" src="/js/img.js?v={{version}}"></script>
 
     <script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css" rel="stylesheet">
