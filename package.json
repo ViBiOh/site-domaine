@@ -5,9 +5,9 @@
   "main": "dist/index.html",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "stylelint": "./node_modules/.bin/stylelint \"src/**/*.css\"",
-    "html": "./node_modules/.bin/html-minifier --config-file ./html-minifier.json --input-dir ./src --file-ext html --output-dir ./dist",
-    "style": "mkdir ./dist/css && cat ./src/css/style.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/style.css",
+    "stylelint": "stylelint \"src/**/*.css\"",
+    "html": "html-minifier --config-file ./html-minifier.json --input-dir ./src --file-ext html --output-dir ./dist",
+    "style": "mkdir ./dist/css && cat ./src/css/style.css | cleancss -O2 -o ./dist/css/style.css",
     "js": "cp -r src/js/ dist/js",
     "img": "cp -r src/img/ dist/img",
     "favicon": "cp -r src/favicon/ dist/favicon",
