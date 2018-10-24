@@ -27,7 +27,6 @@ body {
   background: var(--white);
   height: 100vh;
   margin: 0;
-  width: 100vw;
 }
 
 .full-width {
