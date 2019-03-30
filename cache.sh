@@ -15,7 +15,7 @@ function sed_inplace() {
 
 main() {
   for file in $(find dist -name "*.html"); do
-    sed_inplace "s|{{version}}|$(git log --pretty=format:'%h' -n 1)|g" "${file}"
+    sed_inplace "s|{{version}}|$(git rev-parse --short HEAD)|g" "${file}"
   done
 }
 
