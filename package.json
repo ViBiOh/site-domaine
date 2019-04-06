@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/ViBiOh/site-domaine",
   "devDependencies": {
-    "clean-css-cli": "4.2.1",
-    "html-minifier": "3.5.21",
+    "clean-css-cli": "4.3.0",
+    "html-minifier": "4.0.0",
     "stylelint": "9.10.1",
     "stylelint-config-standard": "18.2.0"
   },
