@@ -13,7 +13,7 @@
     "favicon": "cp -r src/favicon/ dist/favicon",
     "cache": "./cache.sh",
     "build": "npm run clean && npm run stylelint && npm run html && npm run style && npm run js && npm run img && npm run favicon && npm run cache",
-    "prestart": "go get github.com/ViBiOh/viws/cmd/viws",
+    "prestart": "go get github.com/ViBiOh/viws/cmd/viws-light",
     "start": "viws -directory ${INIT_CWD}/src/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' api.tiles.mapbox.com; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net/npm/normalize.css@8.0.0/ use.fontawesome.com/releases/v5.2.0/css/ fonts.googleapis.com api.tiles.mapbox.com; img-src 'self' data: blob:; font-src 'self' fonts.gstatic.com use.fontawesome.com; connect-src 'self' *.mapbox.com; child-src 'self' blob:\" -headers X-UA-Compatible:ie=edge~content-language:fr"
   },
   "repository": {
