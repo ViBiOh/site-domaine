@@ -1,15 +1,13 @@
 FROM node:11 as builder
 
-ENV WORKDIR /usr/src/app
-
-WORKDIR ${WORKDIR}
-COPY ./ ${WORKDIR}/
+WORKDIR /usr/src/app
+COPY . .
 
 RUN npm ci \
- && npm run build \
- && mkdir -p /app \
- && cp -r dist/ /app/
+ && npm run build
 
 FROM vibioh/viws
 
-COPY --from=builder /app/dist/ /www/
+ARG APP_VERSION
+ENV VERSION=${APP_VERSION}
+COPY --from=builder /usr/src/app/dist/ /www/
