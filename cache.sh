@@ -16,4 +16,4 @@ main() {
   done
 }
 
-main "${@}"
+main "${@:-}"
