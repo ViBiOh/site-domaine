@@ -4,7 +4,7 @@ version: "2"
 
 services:
   site:
-    image: vibioh/domaine
+    image: ${DOCKER_USER}/domaine
     labels:
       traefik.http.routers.domaine-http.rule: Host(`domaine-de-montdenis.fr`) || Host(`www.domaine-de-montdenis.fr`)
       traefik.http.routers.domaine-http.entrypoints: http
