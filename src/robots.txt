@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://domaine-de-montdenis.fr/sitemap.xml
+Sitemap: https://domaine-de.montdenis.fr/sitemap.xml

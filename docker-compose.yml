@@ -6,12 +6,12 @@ services:
   site:
     image: ${DOCKER_USER}/domaine
     labels:
-      traefik.http.routers.domaine-http.rule: Host(`domaine-de-montdenis.fr`) || Host(`www.domaine-de-montdenis.fr`)
+      traefik.http.routers.domaine-http.rule: Host(`domaine-de-montdenis.fr`) || Host(`www.domaine-de-montdenis.fr`) || Host(`domaine-de.montdenis.fr`)
       traefik.http.routers.domaine-http.entrypoints: http
       traefik.http.routers.domaine-http.middlewares: redirect@file
-      traefik.http.middlewares.domaine-wwwredirect.redirectregex.regex: ^https://www.domaine-de-montdenis.fr(.*)
-      traefik.http.middlewares.domaine-wwwredirect.redirectregex.replacement: https://domaine-de-montdenis.fr${1}
-      traefik.http.routers.domaine-https.rule: Host(`domaine-de-montdenis.fr`) || Host(`www.domaine-de-montdenis.fr`)
+      traefik.http.middlewares.domaine-wwwredirect.redirectregex.regex: ^https://.*domaine-de-montdenis.fr(.*)
+      traefik.http.middlewares.domaine-wwwredirect.redirectregex.replacement: https://domaine-de.montdenis.fr${1}
+      traefik.http.routers.domaine-https.rule: Host(`domaine-de-montdenis.fr`) || Host(`www.domaine-de-montdenis.fr`) || Host(`domaine-de.montdenis.fr`)
       traefik.http.routers.domaine-https.entrypoints: https
       traefik.http.routers.domaine-https.middlewares: compress@file, web-limit@file, domaine-wwwredirect
       traefik.http.routers.domaine-https.tls: true
