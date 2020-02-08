@@ -79,9 +79,9 @@ if (body && nav) {
         setBodyMarginTopToNavHeight();
       }
 
-      var visiblesSections = linksSections.filter(
-        linkSection => !(sectionOffset(linkSection.element).top >= window.scrollY),
-      );
+      var visiblesSections = linksSections.filter(function(linkSection) {
+        return !(sectionOffset(linkSection.element).top >= window.scrollY);
+      });
 
       if (visiblesSections.length) {
         setActiveNavLink(visiblesSections[visiblesSections.length - 1].link);

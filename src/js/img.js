@@ -3,7 +3,7 @@ throbbers.forEach(function(throbber) {
   throbber.style.display = 'inline-block';
 });
 
-throbbers.forEach(throbber => {
+throbbers.forEach(function(throbber) {
   var img = new Image();
   img.src = throbber.dataset.src;
   img.alt = throbber.dataset.alt;
