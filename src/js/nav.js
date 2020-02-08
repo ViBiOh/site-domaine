@@ -20,7 +20,7 @@ var linksSections = links.map(function(link) {
 
   return {
     link: link,
-    element: document.getElementById(id),
+    element: document.getElementById(id)
   };
 });
 
@@ -29,7 +29,7 @@ if (firstSection) {
     window
       .getComputedStyle(firstSection)
       .getPropertyValue('margin-top')
-      .replace('px', ''),
+      .replace('px', '')
   );
 }
 
@@ -62,7 +62,7 @@ function sectionOffset(e) {
   var rect = e.getBoundingClientRect();
   return {
     top: rect.top + document.body.scrollTop,
-    left: rect.left + document.body.scrollLeft,
+    left: rect.left + document.body.scrollLeft
   };
 }
 

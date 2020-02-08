@@ -8,7 +8,7 @@ var map = new mapboxgl.Map({
   style: 'mapbox://styles/mapbox/streets-v10',
   center: coordinates,
   zoom: 11,
-  scrollZoom: false,
+  scrollZoom: false
 });
 
 map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
