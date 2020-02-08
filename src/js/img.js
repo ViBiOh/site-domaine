@@ -1,5 +1,7 @@
 var throbbers = document.querySelectorAll('.throbber');
-throbbers.forEach(throbber => (throbber.style.display = 'inline-block'));
+throbbers.forEach(function(throbber) {
+  throbber.style.display = 'inline-block';
+});
 
 throbbers.forEach(throbber => {
   var img = new Image();
