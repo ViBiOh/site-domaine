@@ -1,31 +1,5 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v={{version}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v={{version}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png?v={{version}}">
-    <link rel="manifest" href="/favicon/site.webmanifest?v={{version}}">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg?v={{version}}" color="#5bbad5">
-    <link rel="shortcut icon" href="/favicon/favicon.ico?v={{version}}">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-config" content="/favicon/browserconfig.xml?v={{version}}">
-    <meta name="theme-color" content="#ffffff">
-    <title>Elevage canin du Domaine de Montdenis</title>
-    <meta name="description" content="Elevage canin du Domaine de Montdenis. Chiots Epagneul Nain Continental Papillon et Phalène. Ambiance familiale et loisir.">
-    <link rel="canonical" href="https://domaine-de.montdenis.fr">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://domaine-de.montdenis.fr">
-    <meta property="og:title" content="Elevage canin du Domaine de Montdenis">
-    <meta property="og:description" content="Elevage canin du Domaine de Montdenis. Chiots Epagneul Nain Continental Papillon et Phalène. Ambiance familiale et loisir.">
-    <meta property="og:image" content="https://domaine-de.montdenis.fr/favicon/android-chrome-512x512.png?v={{version}}">
-    <meta property="og:image:height" content="512">
-    <meta property="og:image:width" content="512">
-    <link rel="stylesheet" href="/css/style.css?v={{version}}">
-  </head>
-
-  <body class="full-width">
+{{> top.html}}
+<body class="full-width">
     <nav class="flex nav full-width">
       <a class="nav__link link flex__item text center" href="/#accueil">Accueil</a>
       <a class="nav__link link flex__item text center" href="/#race">La race</a>
@@ -197,11 +171,8 @@
       </div>
     </article>
 
-    <script src="/js/nav.js?v={{version}}"></script>
-    <script src="/js/img.js?v={{version}}"></script>
-
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css" rel="stylesheet">
-    <script src="/js/map.js?v={{version}}"></script>
+    {{> inlineJs}}
   </body>
 </html>

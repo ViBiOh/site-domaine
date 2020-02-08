@@ -11,22 +11,26 @@ var content = document.querySelector('.content');
 var firstSection = document.querySelector('section');
 var links = document.querySelectorAll('.nav__link');
 
-var linksSections = links
-  .map(function(link) {
-    var id = '';
+var linksSections = links.map(function(link) {
+  var id = '';
 
-    link.href.replace(ANCHOR_HREF_REGEX, function(all, anchorName) {
-      id = anchorName;
-    });
-
-    return {
-      link: link,
-      element: document.getElementById(id),
-    };
+  link.href.replace(ANCHOR_HREF_REGEX, function(all, anchorName) {
+    id = anchorName;
   });
 
+  return {
+    link: link,
+    element: document.getElementById(id),
+  };
+});
+
 if (firstSection) {
-  var firstSectionMarginTop = Number(window.getComputedStyle(firstSection).getPropertyValue('margin-top').replace('px', ''));
+  var firstSectionMarginTop = Number(
+    window
+      .getComputedStyle(firstSection)
+      .getPropertyValue('margin-top')
+      .replace('px', ''),
+  );
 }
 
 if (nav) {
@@ -54,11 +58,11 @@ if (nav) {
   window.addEventListener('resize', updateNavHeight);
 }
 
-function offset(e) {
+function sectionOffset(e) {
   var rect = e.getBoundingClientRect();
   return {
-      top: rect.top + document.body.scrollTop,
-      left: rect.left + document.body.scrollLeft
+    top: rect.top + document.body.scrollTop,
+    left: rect.left + document.body.scrollLeft,
   };
 }
 
@@ -75,9 +79,9 @@ if (body && nav) {
         setBodyMarginTopToNavHeight();
       }
 
-      var visiblesSections = linksSections.filter(function(linkSection) {
-        return offset(linkSection.element).top < window.scrollY;
-      });
+      var visiblesSections = linksSections.filter(
+        linkSection => !(sectionOffset(linkSection.element).top >= window.scrollY),
+      );
 
       if (visiblesSections.length) {
         setActiveNavLink(visiblesSections[visiblesSections.length - 1].link);
