@@ -1,0 +1,36 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: domaine-http
+spec:
+  entryPoints:
+    - http
+  routes:
+    - match: Host(`domaine-de.montdenis.fr`)
+      kind: Rule
+      middlewares:
+        - name: redirect
+      services:
+        - name: domaine
+          port: 80
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: domaine-https
+spec:
+  entryPoints:
+    - https
+  routes:
+    - match: Host(`domaine-de.montdenis.fr`)
+      kind: Rule
+      middlewares:
+        - name: compress
+        - name: ratelimit
+      services:
+        - name: domaine
+          port: 80
+  tls:
+    certResolver: default
