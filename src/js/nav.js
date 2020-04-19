@@ -80,7 +80,7 @@ if (body && nav) {
       }
 
       var visiblesSections = linksSections.filter(function(linkSection) {
-        return !(sectionOffset(linkSection.element).top >= window.scrollY);
+        return sectionOffset(linkSection.element).top < window.scrollY;
       });
 
       if (visiblesSections.length) {
