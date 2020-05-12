@@ -3,6 +3,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: domaine
+  labels:
+    app.kubernetes.io/name: domaine
+    app.kubernetes.io/instance: domaine
+    app.kubernetes.io/managed-by: kubectl
 spec:
   selector:
     matchLabels:
