@@ -1,0 +1,13 @@
+---
+nameOverride: domaine
+
+image:
+  repository: vibioh/domaine
+
+config:
+  VIWS_LOGGER_JSON: "true"
+
+ingress:
+  enabled: true
+  hosts:
+    - domaine-de.montdenis.fr
