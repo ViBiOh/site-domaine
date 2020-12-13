@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -15,17 +14,13 @@ spec:
         name: vibioh
         namespace: flux-system
       interval: 120m
-
   values:
     nameOverride: domaine
-
     image:
-      repository: vibioh/domaine # {"$imagepolicy": "default:site-domaine"}
-
+      repository: vibioh/domaine:latest # {"$imagepolicy": "default:site-domaine"}
     config:
       VIWS_LOGGER_JSON: "true"
-
     ingress:
       enabled: true
       hosts:
-        - domaine-de.montdenis.fr
+      - domaine-de.montdenis.fr
