@@ -2,25 +2,25 @@ NodeList.prototype.__proto__ = Array.prototype;
 
 var ANCHOR_HREF_REGEX = /.*#(.*?)$/gi;
 
-var stickyNavClass = 'sticky-nav';
-var linkActiveClass = 'nav__link--active';
+var stickyNavClass = "sticky-nav";
+var linkActiveClass = "nav__link--active";
 
-var nav = document.querySelector('.nav');
-var body = document.querySelector('body');
-var content = document.querySelector('.content');
-var firstSection = document.querySelector('section');
-var links = document.querySelectorAll('.nav__link');
+var nav = document.querySelector(".nav");
+var body = document.querySelector("body");
+var content = document.querySelector(".content");
+var firstSection = document.querySelector("section");
+var links = document.querySelectorAll(".nav__link");
 
-var linksSections = links.map(function(link) {
-  var id = '';
+var linksSections = links.map(function (link) {
+  var id = "";
 
-  link.href.replace(ANCHOR_HREF_REGEX, function(all, anchorName) {
+  link.href.replace(ANCHOR_HREF_REGEX, function (all, anchorName) {
     id = anchorName;
   });
 
   return {
     link: link,
-    element: document.getElementById(id)
+    element: document.getElementById(id),
   };
 });
 
@@ -28,8 +28,8 @@ if (firstSection) {
   var firstSectionMarginTop = Number(
     window
       .getComputedStyle(firstSection)
-      .getPropertyValue('margin-top')
-      .replace('px', '')
+      .getPropertyValue("margin-top")
+      .replace("px", "")
   );
 }
 
@@ -39,7 +39,7 @@ if (nav) {
 
 if (body && nav && firstSection) {
   function setBodyMarginTopToNavHeight() {
-    body.style.marginTop = navHeight + firstSectionMarginTop + 'px';
+    body.style.marginTop = navHeight + firstSectionMarginTop + "px";
   }
 }
 
@@ -55,15 +55,19 @@ if (nav) {
     }
   }
 
-  window.addEventListener('resize', updateNavHeight);
+  window.addEventListener("resize", updateNavHeight);
 }
 
 function sectionOffset(e) {
   var rect = e.getBoundingClientRect();
   return {
     top: rect.top + document.body.scrollTop,
-    left: rect.left + document.body.scrollLeft
+    left: rect.left + document.body.scrollLeft,
   };
+}
+
+function isVisible(linkSection) {
+  return sectionOffset(linkSection.element).top < window.scrollY;
 }
 
 if (body && nav) {
@@ -79,9 +83,7 @@ if (body && nav) {
         setBodyMarginTopToNavHeight();
       }
 
-      var visiblesSections = linksSections.filter(function(linkSection) {
-        return !(sectionOffset(linkSection.element).top >= window.scrollY);
-      });
+      var visiblesSections = linksSections.filter(isVisible);
 
       if (visiblesSections.length) {
         setActiveNavLink(visiblesSections[visiblesSections.length - 1].link);
@@ -94,7 +96,7 @@ if (body && nav) {
     }
   }
 
-  window.addEventListener('scroll', updateStickyState);
+  window.addEventListener("scroll", updateStickyState);
 }
 
 /**
@@ -102,7 +104,7 @@ if (body && nav) {
  * @param {DOMElement} el Wanted active nav link
  */
 function setActiveNavLink(el) {
-  var active = document.querySelector('.' + linkActiveClass);
+  var active = document.querySelector("." + linkActiveClass);
   if (active) {
     active.classList.remove(linkActiveClass);
   }
@@ -113,14 +115,16 @@ function setActiveNavLink(el) {
 }
 
 if (links) {
-  links.forEach(function(link) {
-    link.addEventListener('click', function() {
+  links.forEach(function (link) {
+    link.addEventListener("click", function () {
       setActiveNavLink(link);
     });
   });
 }
 
-var hashLink = document.querySelector('.nav__link[href*="' + document.location.hash + '"]');
+var hashLink = document.querySelector(
+  '.nav__link[href*="' + document.location.hash + '"]'
+);
 if (hashLink) {
   setActiveNavLink(hashLink);
 } else {
