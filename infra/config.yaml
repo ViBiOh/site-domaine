@@ -17,7 +17,7 @@ spec:
   values:
     nameOverride: domaine
     image:
-      repository: vibioh/domaine:202102140916 # {"$imagepolicy": "default:site-domaine"}
+      repository: vibioh/domaine:202102151056 # {"$imagepolicy": "default:site-domaine"}
     config:
       VIWS_LOGGER_JSON: 'true'
     ingress:
