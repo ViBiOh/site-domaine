@@ -24,10 +24,10 @@ spec:
   values:
     nameOverride: domaine
     image:
-      repository: vibioh/domaine:202102212022 # {"$imagepolicy": "default:flux-domaine-web"}
+      repository: vibioh/domaine:202102271711 # {"$imagepolicy": "default:flux-domaine-web"}
     config:
       VIWS_LOGGER_JSON: "true"
     ingress:
       enabled: true
       hosts:
-        - domaine-de.montdenis.fr
+      - domaine-de.montdenis.fr
