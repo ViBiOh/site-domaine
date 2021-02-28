@@ -24,7 +24,7 @@ spec:
   values:
     nameOverride: domaine
     image:
-      repository: vibioh/domaine:202102271711 # {"$imagepolicy": "default:flux-domaine-web"}
+      repository: vibioh/domaine:202102280748 # {"$imagepolicy": "default:flux-domaine-web"}
     config:
       VIWS_LOGGER_JSON: "true"
     ingress:
