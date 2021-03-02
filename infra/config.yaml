@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: app
-      version: '0.0.48'
+      version: "0.0.48"
       sourceRef:
         kind: HelmRepository
         name: vibioh
@@ -26,10 +26,10 @@ spec:
     nameOverride: domaine
     image:
       name: vibioh/domaine
-      tag: 202103020806 # {"$imagepolicy": "default:flux-domaine-web:tag"}
+      tag: "202103020806" # {"$imagepolicy": "default:flux-domaine-web:tag"}
     config:
-      VIWS_LOGGER_JSON: 'true'
+      VIWS_LOGGER_JSON: "true"
     ingress:
       enabled: true
       hosts:
-      - domaine-de.montdenis.fr
+        - domaine-de.montdenis.fr
