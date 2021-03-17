@@ -32,3 +32,6 @@ spec:
       enabled: true
       hosts:
       - domaine-de.montdenis.fr
+    canary:
+      enabled: true
+      url: https://domaine-de.montdenis.fr
