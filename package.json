@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/ViBiOh/site-domaine",
   "devDependencies": {
-    "clean-css-cli": "5.2.2",
+    "clean-css-cli": "5.3.0",
     "html-minifier": "4.0.0",
     "js-index-builder": "ViBiOh/js-index-builder#main",
     "stylelint": "13.13.1",
