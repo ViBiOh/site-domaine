@@ -25,7 +25,7 @@ spec:
     nameOverride: domaine
     image:
       name: vibioh/domaine
-      tag: "202105110808" # {"$imagepolicy": "default:flux-domaine-web:tag"}
+      tag: "202105130830" # {"$imagepolicy": "default:flux-domaine-web:tag"}
     config:
       VIWS_LOGGER_JSON: "true"
     ingress:
