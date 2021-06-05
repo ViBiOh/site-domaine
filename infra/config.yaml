@@ -28,10 +28,11 @@ spec:
       tag: "202105300722" # {"$imagepolicy": "default:flux-domaine-web:tag"}
     config:
       VIWS_LOGGER_JSON: "true"
+      VIWS_PROMETHEUS_GZIP: "false"
     ingress:
       enabled: true
       hosts:
-      - domaine-de.montdenis.fr
+        - domaine-de.montdenis.fr
     canary:
       enabled: true
       url: https://domaine-de.montdenis.fr
